@@ -41,7 +41,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className='advertisment'></div>
+      <div className='advertisment'>
+        <div id="yandex_rtb_R-A-17298920-1"></div>
+      </div>
       <form className='search_form'>
         <input className='search_input' placeholder='enter key words' value={inputValue} onChange={(event) => setInputValue(event.target.value)}></input>
         <button className='submit_button' type='submit' onClick={(event) => {event.preventDefault(); search(inputValue, selectedYear, page)}}>Search</button>
