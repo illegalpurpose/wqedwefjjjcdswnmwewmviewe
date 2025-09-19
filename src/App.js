@@ -54,7 +54,7 @@ function App() {
         !isLoaded ?
         <a href='https://t.me/searchtelegraph'><img src={banner} className='banner' alt='banner'></img></a>
         :
-        <div id="yandex_rtb_R-A-17298920-1"></div>
+        <div id="yandex_rtb_R-A-17300561-1"></div>
        }
       </div>
       <form className='search_form'>
