@@ -1,12 +1,17 @@
 import React from 'react'; 
 import './App.css';
 import axios from 'axios';
+import banner from './banner.png';
 
 function App() {
   const currentYear = new Date().getFullYear();
+  const [isLoaded, setIsLoaded] = React.useState(false);
   const [countItems, setCountItems] = React.useState(0);
   const [years, setYears] = React.useState([]);
-  const [items, setItems] = React.useState(null);
+  const [items, setItems] = React.useState([{
+    link: "https://telegra.ph/telegraph-searchcom---Poiskovik-po-telegraph-09-19",
+    title: "telegraph-search.com - Поисковик по telegra.ph"
+  }]);
   const [page, setPage] = React.useState(1);
   const [selectedYear, setSelectedYear] = React.useState({start: currentYear + "0101", end: currentYear + "1231"});
   const [inputValue, setInputValue] = React.useState("");
@@ -37,12 +42,20 @@ function App() {
 
   React.useEffect(() => {
     getYearsArray(currentYear);
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 15000);
   }, [currentYear]);
 
   return (
     <div className="App">
       <div className='advertisment'>
+       {
+        !isLoaded ?
+        <a href='https://t.me/searchtelegraph'><img src={banner} className='banner' alt='banner'></img></a>
+        :
         <div id="yandex_rtb_R-A-17298920-1"></div>
+       }
       </div>
       <form className='search_form'>
         <input className='search_input' placeholder='enter key words' value={inputValue} onChange={(event) => setInputValue(event.target.value)}></input>
@@ -93,6 +106,7 @@ function App() {
           }}>Next page</p>
         }
       </div>
+      <p style={{marginTop: "auto", marginBottom: "0px"}}>All rights reserved © {currentYear} Copyright telegraph-search.com</p>
     </div>
   );
 }
